@@ -2,24 +2,30 @@
 <html lang="en">
 <head>
     <script src="jquery.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <style>
         
         body{
             align-items: center;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: "Arial" "sans-serif";
+        }
+        .img-container{
+            padding: 2em;
         }
         .header{
-            font-family: sans-serif;
+            font-family: "sans-serif" !important;
         }
         .main-table{
+            border-collapse: separate;
             margin: auto;
             text-align: center;
             border-spacing: 1em;
-            width: 60%;
+            width: 70%;
         }
         .main-td{
+            box-shadow: 2px 2px #272727;
             vertical-align: top;
-            border: 2px solid black;
+            border: 2px solid #272727;
         }
         .form-table{
             width: 60%;
@@ -30,9 +36,13 @@
             height: 700px;
         }
         .description{
+            color: orange;
             height: 70px;
+            padding: 1em;
+            vertical-align: center;
         }
         .result-container{
+            border-top: 2px solid #272727;
             position: absolute;
             top: 75px;
             left: 0;
@@ -41,57 +51,88 @@
             padding: 0 1em;
             overflow-y: auto;
             overflow-x: scroll;
+            color: orange;
         }
         .result-header{
             width: 100%;
+            color: orange;
         }
         .warn{
             text-align: center;
+            padding: 2ch;
             color: red;
             display: none;
         }
-
+        .form-text{
+            color: orange !important;
+            padding: 1ch;
+            font-size: medium;
+        }
+        .bg-dark{
+            --bs-bg-opacity: 0.4;
+            background-color: #2C3531 !important;
+        }
+        .btn{
+            margin-top: 2%;
+            margin-bottom: 2%;
+            --bs-btn-color: orange;
+            --bs-btn-border-radius: 0;
+            --bs-btn-border-color: orange;
+            --bs-btn-hover-color: #2C3531;
+            --bs-btn-hover-bg: orange;
+            --bs-btn-hover-border-color: orange;
+        }
+        .form-check-label{
+            color: #ff9a3cc2;
+        }
+        .form-control{
+            margin: auto;
+            width: 50%;
+        }
+        
     </style>
     <link rel="shortcut icon" href="img/placeholder.jpg">
     <meta charset="UTF-8">
     <meta content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Лабораторная работа</title>
 </head>
-<body>
+<body class="bg-dark">
     
     <table class="main-table">
         <tr>
-            <td class="main-td">
-                <div class="header">
+            <td class="main-td text-bg-dark" style="--bs-bg-opacity: 1;">
+                <div class="text-bg-dark header" style="--bs-bg-opacity: 1;" >
                     Бугаев Сергей Юрьевич, P32131 <br> Вариант 903
                 </div>
             </td>
         </tr>
         <tr>
-            <td class="main-td">
+            <td class="main-td text-bg-dark img-container">
                 <img src="img/areas.png" alt="График">
             </td>
         </tr>
         <tr>
-            <td class="main-td">
+            <td class="main-td text-bg-dark">
                 <form name="form">
                     <table class = "form-table">
                         <tr>
-                            <td class="x-value" colspan="9">
+                            <td class="x-value form-text" colspan="9">
                                 Значение X
                             </td>
                         </tr>
                         <tr>
-                                <td><input type="checkbox" name="valueX" value="-5" id="x_-5"><label for="-5">-5</label></td>
-                                <td><input type="checkbox" name="valueX" value="-4" id="x_-4"><label for="-4">-4</label></td>
-                                <td><input type="checkbox" name="valueX" value="-3" id="x_-3"><label for="-3">-3</label></td>
-                                <td><input type="checkbox" name="valueX" value="-2" id="x_-2"><label for="-2">-2</label></td>
-                                <td><input type="checkbox" name="valueX" value="-1" id="x_-1"><label for="-1">-1</label></td>
-                                <td><input type="checkbox" name="valueX" value="0" id="x_0"><label for="0">0</label></td>
-                                <td><input type="checkbox" name="valueX" value="1" id="x_1"><label for="1">1</label></td>
-                                <td><input type="checkbox" name="valueX" value="2" id="x_2"><label for="2">2</label></td>
-                                <td><input type="checkbox" name="valueX" value="3" id="x_3"><label for="3">3</label></td>                                
+                            <div>
+                                <td><input type="checkbox" class="form-check-input" name="valueX" value="-5" id="x_-5"><br><label class="form-check-label" for="-5">-5</label></td>
+                                <td><input type="checkbox" class="form-check-input" name="valueX" value="-4" id="x_-4"><br><label class="form-check-label" for="-4">-4</label></td>
+                                <td><input type="checkbox" class="form-check-input" name="valueX" value="-3" id="x_-3"><br><label class="form-check-label" for="-3">-3</label></td>
+                                <td><input type="checkbox" class="form-check-input" name="valueX" value="-2" id="x_-2"><br><label class="form-check-label" for="-2">-2</label></td>
+                                <td><input type="checkbox" class="form-check-input" name="valueX" value="-1" id="x_-1"><br><label class="form-check-label" for="-1">-1</label></td>
+                                <td><input type="checkbox" class="form-check-input" name="valueX" value="0" id="x_0"><br><label class="form-check-label" for="0">0</label></td>
+                                <td><input type="checkbox" class="form-check-input" name="valueX" value="1" id="x_1"><br><label class="form-check-label" for="1">1</label></td>
+                                <td><input type="checkbox" class="form-check-input" name="valueX" value="2" id="x_2"><br><label class="form-check-label" for="2">2</label></td>
+                                <td><input type="checkbox" class="form-check-input" name="valueX" value="3" id="x_3"><br><label class="form-check-label" for="3">3</label></td>                                
+                            </div>
                         </tr>
                         <tr class="x-value-row">
                             <td colspan="9" id="warn_x" class="warn">
@@ -101,7 +142,7 @@
                         <tr><td class="form-text y-text" colspan="9">Значение Y</td></tr>
                         <tr class="y-value-row">
                             <td colspan="9" id="y-elem">
-                                <input type="text" class="form-input y-input" id="y-field" placeholder="(-5 ... 5)">
+                                <input type="text" class="form-input form-control y-input" id="y-field" placeholder="(-5 ... 5)">
                                 <div class="tool-helper"><div class="tool"></div></div>
                             </td>
                         </tr>
@@ -114,7 +155,7 @@
                         <tr class="r-value-row">
                                  
                             <td colspan="9" id="r-elem">
-                                <input type="text" class="form-input r-input" id="r-field" placeholder="(2 ... 5)">
+                                <input type="text" class="form-input r-input form-control" id="r-field" placeholder="(2 ... 5)">
                                 <div class="tool-helper"><div class="tool"></div></div>
                             </td>
                         </tr>
@@ -124,14 +165,14 @@
                             </td>
                         </tr>
                         <tr><td colspan="9" id="submit-button">
-                            <input type="submit" value="Отправить">
+                            <input type="submit" class="btn btn-outline-warning" value="Отправить">
                         </td></tr>
                     </table>
                 </form>
             </td>
         </tr>
         <tr>
-            <td class="main-td results">
+            <td class="main-td results text-bg-dark">
                 <div class="description">
                     <h2>Таблица результатов</h2>
                 </div>
