@@ -3,11 +3,16 @@ let enabledSettings = []
 const checkboxes = document.getElementsByName("valueX"), 
 yField = document.getElementById("y-field"),
 rField = document.getElementById("r-field")
+var results = document.getElementById("result-table")
 
+document.addEventListener("DOMContentLoaded", (event)=>{
+    event.preventDefault();
+    $.get(`session.php`, function(data){
+        results.innerHTML=data
+    })
+})
 function html_warning(code, toggle){
-    console.log(code, toggle)
     var w = document.getElementById(code);
-    console.log(w)
     if(toggle){
         w.style.display = "table-cell"
     }
@@ -71,10 +76,10 @@ rField.addEventListener("input", () => {
     })
     document.forms.form.onsubmit = function(event) {
         event.preventDefault()
-        if(validate_data(document.querySelectorAll("[name=\"valueX\"]:checked"), yField.value, rField.value)){
-            $.get("main.php", {test: "Hi"}, function(data){alert(data)})
-        }
-        else{
-            alert("Не все поля валидны!")
+        let data = validate_data(document.querySelectorAll("[name=\"valueX\"]:checked"), yField.value, rField.value)
+        if(data){
+            $.get(`main.php?x=${data.x}&y=${data.y}&r=${data.r}&offset=${new Date().getTimezoneOffset()}`, function(data){
+                results.innerHTML+=data
+            })
         }
     }
